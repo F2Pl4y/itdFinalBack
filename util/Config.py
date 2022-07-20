@@ -11,8 +11,8 @@ class Config:
     MYSQL_PASS = "fer1299.3py"
     MYSQL_DB = "f3rn4nd021py$midb" """
     
-    MYSQL_HOST = 'localhost'
-    MYSQL_PORT = 3306
-    MYSQL_USER = 'root'
-    MYSQL_PASS = ''
-    MYSQL_DB = 'parapacos'
+    MYSQL_HOST = "localhost"
+    MYSQL_PORT = 3305
+    MYSQL_USER = "root"
+    MYSQL_PASS = ""
+    MYSQL_DB = "parapacos"
