@@ -12,6 +12,7 @@ class Config:
     MYSQL_DB = "f3rn4nd021py$midb" """
     
     MYSQL_HOST = 'localhost'
+    MYSQL_PORT = 3306
     MYSQL_USER = 'root'
     MYSQL_PASS = ''
-    MYSQL_DB = 'bdpacosbill'
+    MYSQL_DB = 'parapacos'
