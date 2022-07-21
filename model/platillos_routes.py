@@ -1,7 +1,7 @@
 import re
 from flask import Blueprint, jsonify, request, make_response
 from util.Connection import Connection
-
+import os
 conexion = Connection()
 platillos = Blueprint("platillos", __name__)
 mysql = conexion.mysql
@@ -98,13 +98,30 @@ def platilloGet(id):
     dato = platilloGetInterno(id)
     return jsonify({"resultado": dato[0], "exito": dato[1]})
 
-
-@platillos.route("/platillos/foto/<string:categoria>/<string:imagen>", methods = ['GET'])
-def cargarImagenPlatillo(categoria, imagen):
-    image_data = open("upload/images/"+categoria+"/"+imagen, "rb").read()
-    resultado = make_response(image_data)
-    resultado.headers['Content-Type'] = 'image/png'
-    return resultado
+# 
+CARPETAUP = os.path.join(r'upload/images/Piqueos/rolls.png')
+    # image_data = open("upload/images/"+categoria+"/"+imagen, "rb").read()+categoria+"/"+imagen
+# @platillos.route("/platillos/foto/<string:categoria>/<string:imagen>", methods = ['GET'])
+@platillos.route("/platillos/fotssso/", methods = ['GET'])
+# def cargarImagenPlatillo(categoria, imagen):
+def cargarImagenPlatillo():
+    try:
+        # image_data = open("D:/Repositorios/itdFinalBack/upload/images/Piqueos/rolls.png", "rb").read()
+        # image_data = open('itdFinalBack/upload/images/Piqueos/rolls.png', "rb").read()
+        # image_data = open('D:/Repositorios/mibackEnd/upload/images/5/rolls.png', "rb").read()
+        # image_data = open('upload/images/Piqueos/rolls.png', "rb").read()
+        image_data = open(CARPETAUP, "rb").read()
+        # image_data = open('../mibackEnd/upload/images/Piqueos/rolls.png', "rb").read()
+        # image_data = open('../upload/images/5/rolls.png', "rb").read()
+        resultado = make_response(image_data)
+        resultado.headers['Content-Type'] = 'image/png'
+        return resultado
+        # image_data = open('upload/images/5/rolls.png', "rb").read()
+        # resultado = make_response(image_data)
+        # resultado.headers['Content-Type'] = 'image/png'
+        # return resultado
+    except Exception as ex:
+        return "falla: "+ repr(ex)
 
 @platillos.route("/platillos/delete/<int:id>/", methods = ['PUT'])
 def platillosDelete(id):

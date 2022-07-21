@@ -19,6 +19,10 @@ app.register_blueprint(detallepedido)
 
 def pagina_no_encontrada(error):
     return "<h1>Método no encontrado</h1>"
+    
+@app.route("/")
+def ingreso():
+    return "<h1>corriendo :)</h1>"
 
 if __name__ == "__main__":
     app.register_error_handler(404, pagina_no_encontrada)
