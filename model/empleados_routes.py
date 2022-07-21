@@ -89,7 +89,7 @@ def empleadoAdminSel():
     resultado = []
     exito = True
     try:
-        sql = "SELECT idEmpleado, nombreEmpleado, correoEmpleado, estado, idCargo FROM empleado WHERE idCargo = 2 and estado = 1"
+        sql = "SELECT idEmpleado, nombreEmpleado, correoEmpleado, estado, idCargo FROM empleado WHERE idCargo = 2 and estado = 1;"
         conector = mysql.connect()
         cursor = conector.cursor()
         cursor.execute(sql)
@@ -104,7 +104,7 @@ def empleadoAdminSel():
                     "nombreEmpleado": fila[1],
                     "correoEmpleado": fila[2],
                     "estado": fila[3],
-                    "idCargo": fila[4],
+                    "idCargo": fila[4]
                 }
                 resultado.append(Datosempleados)
     except Exception as ex:

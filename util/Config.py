@@ -15,4 +15,5 @@ class Config:
     MYSQL_PORT = 3305
     MYSQL_USER = "root"
     MYSQL_PASS = ""
-    MYSQL_DB = "parapacos"
+    MYSQL_DB = "pacosbillitd"
+    # MYSQL_DB = "parapacos"

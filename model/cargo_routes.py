@@ -33,7 +33,6 @@ def cargosDelete(id):
         exito = False
     return jsonify({"resultado": mensaje, "exito": exito})
 
-
 @cargos.route("/cargos/comprobar/<int:id>/", methods=["GET"])
 def cargosComprobar(id):
     exito = True
